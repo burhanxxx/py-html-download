@@ -14,3 +14,19 @@ download webpage and resources links with it
     6. Parameters
     7. Fragments
 4. download the webpage based on the url
+
+## Example usage
+
+$ python url_processor.py https://getbootstrap.com/2.0.2/examples/hero.html
+$ 
+
+## Download URL Current Page Along With Internal Resources
+
+1. Get downloaded file (hero.html) and fine all tag that has attribute href or src
+2. Get list of paths from tag containing href or src
+3. Download the resources
+
+## Example usage 
+
+$ python url_processor.py https://getbootstrap.com/2.0.2/examples/hero.html
+$ 
