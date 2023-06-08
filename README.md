@@ -63,3 +63,5 @@ The result is "2.0.2/examples/hero.html"
 ```
 /> python url_processor.py https://getbootstrap.com/2.0.2/examples/hero.html
 ```
+This will download the webpage and all its resources in a path similar to the url path.
+The result is "2.0.2/*"
