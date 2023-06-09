@@ -28,7 +28,7 @@ def download_webpage(url, folder=None, file_name=None):
         except OSError as e:
             print("Error occurred while creating folder:", str(e))
             return
-        file_path = os.path.join(folder, file_name)
+        file_path = folder + "/" + file_name
     else:
         file_path = file_name
 
@@ -37,10 +37,25 @@ def download_webpage(url, folder=None, file_name=None):
     try:
         response = requests.get(url)
         if response.status_code == 200:
-            content = response.text
-            with open(file_path, 'w', encoding='utf-8') as file:
-                file.write(content)
-            print("Webpage " + file_path + " saved successfully.")
+
+            image_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.ico']
+            file_extension = os.path.splitext(file_name)[1].lower()
+
+            if file_extension in image_extensions:
+
+                content = requests.get(url, stream=True)
+                with open(file_path, 'wb') as file:
+                    for chunk in content:
+                        file.write(chunk)
+                print("Image downloaded successfully:", file_path)
+
+            else:
+
+                content = response.text
+                with open(file_path, 'w', encoding='utf-8') as file:
+                    file.write(content)
+                print("Webpage " + file_path + " saved successfully.")
+                
         else:
             print("Error: Response status code", response.status_code)
     except requests.exceptions.RequestException as e:
