@@ -43,15 +43,10 @@ def download_webpage(url, folder=None, file_name=None):
 
             if file_extension in image_extensions:
 
-<<<<<<< HEAD
-                with open(file_path, 'wb') as file:
-                    file.write(response.content)
-=======
                 content = requests.get(url, stream=True)
                 with open(file_path, 'wb') as file:
                     for chunk in content:
                         file.write(chunk)
->>>>>>> version-0.3
                 print("Image downloaded successfully:", file_path)
 
             else:
