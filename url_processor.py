@@ -28,7 +28,7 @@ def download_webpage(url, folder=None, file_name=None):
         except OSError as e:
             print("Error occurred while creating folder:", str(e))
             return
-        file_path = os.path.join(folder, file_name)
+        file_path = folder + "/" + file_name
     else:
         file_path = file_name
 
@@ -43,8 +43,15 @@ def download_webpage(url, folder=None, file_name=None):
 
             if file_extension in image_extensions:
 
+<<<<<<< HEAD
                 with open(file_path, 'wb') as file:
                     file.write(response.content)
+=======
+                content = requests.get(url, stream=True)
+                with open(file_path, 'wb') as file:
+                    for chunk in content:
+                        file.write(chunk)
+>>>>>>> version-0.3
                 print("Image downloaded successfully:", file_path)
 
             else:
