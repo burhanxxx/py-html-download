@@ -33,7 +33,7 @@ Download webpage and resources link with it
 
 4. download the webpage based on the url
 ```
-    download_webpage(url, folders, file_name)
+    download(url)
 ```
 ## Example usage
 ```
@@ -46,17 +46,17 @@ The result is "2.0.2/examples/hero.html"
 
 1. Get downloaded file (e.g. hero.html) and fine all tags that has attribute href or src
 ```
-    get_nodes_with_attributes(html_file, attribute_names)
+    get_nodes_with_attributes(url, attribute_names)
 ```
 
-2. Get list of paths from tag containing href or src
+2. Get list of paths from tag attribute href or src
 ```
-    resolve_relative_paths(relative_paths, folder_path)
+    resolve_relative_paths(url)
 ```
 
 3. Download the resources
 ```
-    download_webpage(url, folders, file_name)
+    download(url)
 ```
 
 ## Example usage 
